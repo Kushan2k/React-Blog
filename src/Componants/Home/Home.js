@@ -1,10 +1,10 @@
 import React, { useContext,useEffect } from 'react'
 import Post from './Post'
 
-import { db} from './firebase.config'
+import { db} from '../firebase.config'
 
-import {Context} from './Provider'
-import { ACTION_TYPES } from './Reducer'
+import {Context} from '../Provider'
+import { ACTION_TYPES } from '../Reducer'
 
 function Home() {
 

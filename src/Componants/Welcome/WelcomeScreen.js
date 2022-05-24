@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
 import { Avatar } from '@material-ui/core'
-import { Context } from './Provider'
+import { Context } from '../Provider'
 import './Welcome.css'
 
 function WelcomeScreen() {

@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 import { Avatar } from '@material-ui/core'
 import React,{useContext} from 'react'
-import { Context } from './Provider'
-import { db } from './firebase.config'
+import { Context } from '../Provider'
+import { db } from '../firebase.config'
 
 import DeleteIcon from '@material-ui/icons/Delete';
 

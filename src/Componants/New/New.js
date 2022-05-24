@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './New.css'
-import {db} from './firebase.config'
-import { Context } from './Provider'
+import {db} from '../firebase.config'
+import { Context } from '../Provider'
 import {useNavigate} from 'react-router-dom'
 
 function New() {

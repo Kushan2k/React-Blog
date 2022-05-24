@@ -1,9 +1,9 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
-import { Context } from './Provider'
-import {auth} from './firebase.config'
-import { ACTION_TYPES } from './Reducer'
+import { Context } from '../Provider'
+import {auth} from '../firebase.config'
+import { ACTION_TYPES } from '../Reducer'
 
 function Navbar() {
 

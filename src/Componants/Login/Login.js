@@ -1,7 +1,7 @@
 import React, { useState, useContext,useEffect } from 'react'
-import { ACTION_TYPES } from './Reducer'
-import { Context } from './Provider'
-import { auth,FBprovider,provider } from './firebase.config'
+import { ACTION_TYPES } from '../Reducer'
+import { Context } from '../Provider'
+import { auth,FBprovider,provider } from '../firebase.config'
 
 
 import './Login.css'

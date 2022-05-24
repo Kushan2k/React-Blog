@@ -2,14 +2,17 @@
 import './App.css';
 
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
-import Home from './Componants/Home';
-import Login from './Componants/Login';
 import { useContext } from 'react';
 import { Context } from './Componants/Provider'
-import Navbar from './Componants/Navbar'
-import New from './Componants/New'
-import WelcomeScreen from './Componants/WelcomeScreen';
-import Footer from './Componants/Footer';
+
+
+//components
+import Navbar from './Componants/Navbar/Navbar'
+import New from './Componants/New/New'
+import WelcomeScreen from './Componants/WelcomeScreen/';
+import Footer from './Componants/Footer/Footer';
+import Home from './Componants/Home/Home';
+import Login from './Componants/Login/Login';
 
 
 function App() {
