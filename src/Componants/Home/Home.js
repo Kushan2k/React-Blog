@@ -1,5 +1,5 @@
 import React, { useContext,useEffect } from 'react'
-import Post from './Post'
+import Post from '../Post/Post'
 
 import { db} from '../firebase.config'
 

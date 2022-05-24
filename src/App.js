@@ -9,7 +9,7 @@ import { Context } from './Componants/Provider'
 //components
 import Navbar from './Componants/Navbar/Navbar'
 import New from './Componants/New/New'
-import WelcomeScreen from './Componants/WelcomeScreen/';
+import WelcomeScreen from './Componants/Welcome/WelcomeScreen';
 import Footer from './Componants/Footer/Footer';
 import Home from './Componants/Home/Home';
 import Login from './Componants/Login/Login';
