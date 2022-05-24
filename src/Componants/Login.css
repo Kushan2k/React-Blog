@@ -1,0 +1,92 @@
+.login-page{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  
+  padding: 15px;
+  height: fit-content;
+  width: 50%;
+}
+.login-form>input{
+  border: none;
+  width: 100%;
+  margin:20px 0px ;
+  border-bottom: 0.5px solid orangered;
+  color: rgb(176, 176, 176);
+  padding-bottom: 7px;
+
+}
+.login-form>input:focus{
+  outline: none;
+  border-bottom: 2px solid orangered;
+  
+}
+.btns{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.login-btn{
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius:5px ;
+  width: 30%;
+  background-color: rgba(255, 123, 0,0.7);
+}
+.login-btn:hover{
+  transform: scale(1.1);
+  transition: 200ms linear;
+  cursor: pointer;
+}
+
+.google-btn,.fb-btn{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.fb-btn{
+  transform: scale(0.7);
+}
+
+.google-btn:hover{
+  outline: none;
+  cursor: pointer;
+  transform: scale(1.4);
+  transition: 400ms linear;
+}
+.fb-btn:hover{
+  transition: 400ms linear;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+.error{
+  font-size: 13px;
+  color: orangered;
+}
+.social-logins{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (min-width:768px) {
+  .login-form>input{
+    width:60%;
+    
+  }
+  
+}

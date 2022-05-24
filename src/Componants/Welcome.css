@@ -1,0 +1,33 @@
+.welcome{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 55%;
+  margin: 0 auto;
+  border-bottom: 2px solid orangered;
+  padding-top: 20px;
+  
+}
+
+.pic{
+
+  transform: scale(1.4);
+
+}
+.pic:hover{
+  cursor: pointer;
+  border-bottom: 2px solid orange;
+  border-right: 2px solid orange;
+
+}
+.text{
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  word-wrap: break-word;
+  text-align: center;
+}
+.name{
+  font-style: italic;
+  color: rgb(255, 115, 0);
+}

@@ -1,41 +1,48 @@
 
 import './App.css';
 
-import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom'
 import Home from './Componants/Home';
-import Profile from './Componants/Profile';
 import Login from './Componants/Login';
 import { useContext } from 'react';
-import {Context} from './Componants/Provider'
+import { Context } from './Componants/Provider'
+import Navbar from './Componants/Navbar'
+import New from './Componants/New'
+import WelcomeScreen from './Componants/WelcomeScreen';
+import Footer from './Componants/Footer';
 
 
 function App() {
 
-  const { data, actionDispatch } = useContext(Context)
+  const { data } = useContext(Context)
   const user=data.user
   
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
+        
 
-      {
-        user ? (
-          <Router>
-            <Switch>
+        {
+          user ? (
               
-              <Route path={'/profile'} exact component={ Profile} />
-              <Route path={'/login'} exact={true} component={Login} />
-              <Route path={'/'} exact component={ Home} />
-            </Switch>
-          </Router>
-        ):<Login/>
-      }
-
-      
-      
-      
-      
-      
-    </div>
+            <>
+              <Navbar />
+              <WelcomeScreen/>
+              <Routes>
+                
+                <Route path="/"   element={<Home/>} />
+                <Route path="/new"   element={ <New/>}/>
+                
+              </Routes>
+            </>
+            
+          ):<Login/>
+        }
+        
+        <Footer/>
+          
+      </div>
+    </Router>
   );
 }
 

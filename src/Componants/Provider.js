@@ -1,11 +1,11 @@
-import { useReducer } from "react";
-import { createContext } from "react";
+
+import { useReducer ,createContext} from "react";
 import { reducer} from "./Reducer";
 
 const Context = createContext()
 
 const init_state = {
-  posts: [1,2,3,4,5,6],
+  posts:[],
   user:null,
 }
 
