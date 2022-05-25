@@ -35,8 +35,8 @@ function Home() {
   const { data, actionDispatch } = useContext(Context)
   useEffect(() => {
 
-    postref.current.style.display='none'
-    loadref.current.style.display = 'flex'
+    // postref.current.style.display='none'
+    // loadref.current.style.display = 'flex'
     
 
     setTimeout(() => {
@@ -63,8 +63,8 @@ function Home() {
       d.catch(error => {
         alert(error.message)
       })
-      loadref.current.style.display = 'none'
-      postref.current.style.display='flex'
+      // loadref.current.style.display = 'none'
+      // postref.current.style.display='flex'
       
 
       
@@ -78,13 +78,13 @@ function Home() {
 
   return (
     <div className='home'>
-      <div className="loader" ref={loadref} style={{ display: "flex",marginTop:10}}>
+      {/* <div className="loader" ref={loadref} style={{ display: "flex",marginTop:10}}>
         <div className="spiner">
 
         </div>
         <p>Loading...</p>
-      </div>
-      <div className="posts" ref={postref} style={{display:'none'}}>
+      </div> */}
+      <div className="posts" ref={postref} style={{display:'flex'}}>
         {
         data.posts.map(post => {
           return (
