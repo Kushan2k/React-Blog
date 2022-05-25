@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from 'react'
+import React, { useContext,useEffect, useRef } from 'react'
 import Post from '../Post/Post'
 
 import { db} from '../firebase.config'
@@ -6,7 +6,12 @@ import { db} from '../firebase.config'
 import {Context} from '../Provider'
 import { ACTION_TYPES } from '../Reducer'
 
+import './Home.css'
+
 function Home() {
+
+  const loadref = useRef()
+  const postref=useRef()
 
   db.collection('posts').onSnapshot(shot => {
     let posts=[]
@@ -30,29 +35,40 @@ function Home() {
   const { data, actionDispatch } = useContext(Context)
   useEffect(() => {
 
-    let posts=[]
-    const d = db.collection('posts').get();
-    d.then(res => {
-      
-      res.forEach(doc => {
+    postref.current.style.display='none'
+    loadref.current.style.display = 'flex'
+    
+
+    setTimeout(() => {
+      let posts=[]
+      const d = db.collection('posts').get();
+      d.then(res => {
         
-        posts.push({
-          id: doc.id,
-          data:doc.data()
+        res.forEach(doc => {
+          
+          posts.push({
+            id: doc.id,
+            data:doc.data()
+          })
         })
-      })
-      actionDispatch(
-        {
-          type: ACTION_TYPES.LOAD_POST,
-          payload: {
-            posts:posts,
+        actionDispatch(
+          {
+            type: ACTION_TYPES.LOAD_POST,
+            payload: {
+              posts:posts,
+            }
           }
-        }
-      )
-    })
-    d.catch(error => {
-      alert(error.message)
-    })
+        )
+      })
+      d.catch(error => {
+        alert(error.message)
+      })
+      loadref.current.style.display = 'none'
+      postref.current.style.display='flex'
+      
+
+      
+    }, 1000);
 
 
 
@@ -62,7 +78,14 @@ function Home() {
 
   return (
     <div className='home'>
-      {
+      <div className="loader" ref={loadref} style={{ display: "flex",marginTop:10}}>
+        <div className="spiner">
+
+        </div>
+        <p>Loading...</p>
+      </div>
+      <div className="posts" ref={postref} style={{display:'none'}}>
+        {
         data.posts.map(post => {
           return (
             <Post
@@ -78,6 +101,7 @@ function Home() {
           )
         })
       }
+      </div>
       
     </div>
   )

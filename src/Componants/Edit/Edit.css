@@ -1,0 +1,9 @@
+.edit-page{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px auto;
+  height: 70vh;
+
+}

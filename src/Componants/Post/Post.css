@@ -45,14 +45,18 @@
 .post-date{
   text-align: right;
 }
+.edit-icon{
+  color: green;
+  margin-right: 5px;
+}
 
-.del-btn{
+.del-btn,.edit-btn{
   border: none;
   outline: none;
   background-color: transparent;
 
 }
-.del-btn:hover{
+.del-btn,.edit-btn:hover{
   cursor: pointer;
 
 }
@@ -67,10 +71,10 @@
   justify-content: flex-end;
 
 }
-.del-btn:hover{
+.del-btn:hover,.edit-btn:hover{
   border-right: 2px solid grey;
 }
-.del-icon:hover{
+.del-icon:hover,.edit-icon:hover{
   transform: scale(1.3);
 }
 

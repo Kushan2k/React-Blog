@@ -1,9 +1,10 @@
 .new-post{
   display: flex;
-  justify-content: space-around;
+  margin-top: 40px;
   align-items: center;
   width: 100%;
   height: 100vh;
+  flex-direction: column;
 }
 
 .post-from{
@@ -32,15 +33,51 @@
   
 }
 .post-btn{
-  color: grey;
-  padding: 5px;
+  color: white;
+  padding: 7px;
   border: none;
   border-bottom: 2px solid orangered;
   width: 30%;
-  background-color: rgba(237, 70, 9,0.3);
+  background-color: rgba(228, 152, 12,0.7);
 }
 .post-btn:hover{
   transform: scale(1.1);
   transition: 200ms linear;
   cursor: pointer;
+}
+
+.loader{
+  display: flex;
+  width: fit-content;
+  margin: 10px auto;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.loader>p{
+  color: orange;
+}
+.spiner{
+  width: 100px;
+  height: 100px;
+  border-left: 3px solid orange;
+  border-right: 3px solid orange;
+  border-radius: 50%;
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+
+}
+
+@keyframes spin {
+
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(350deg);
+  }
+  
 }

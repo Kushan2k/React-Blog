@@ -6,3 +6,10 @@
   align-items: center;
   flex-direction: column;
 }
+.posts{
+  
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+}

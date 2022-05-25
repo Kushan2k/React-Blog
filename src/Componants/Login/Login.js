@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from 'react'
+import React, { useState, useContext,useEffect,useRef } from 'react'
 import { ACTION_TYPES } from '../Reducer'
 import { Context } from '../Provider'
 import { auth,FBprovider,provider } from '../firebase.config'
@@ -12,11 +12,17 @@ function Login() {
   const [password, setPassword] = useState('')
   const [error,setError]=useState("")
   
-  const {actionDispatch } = useContext(Context)
+  const { actionDispatch } = useContext(Context)
+  
+  const loadref = useRef()
+  const formref=useRef()
 
 
   function login() {
     if (email.length !== 0 && password.length !== 0) {
+
+      loadref.current.style.display = 'flex'
+      formref.current.style.display='none'
       auth.signInWithEmailAndPassword(email, password)
         .then(userDetails => {
           actionDispatch(
@@ -28,12 +34,16 @@ function Login() {
             }
           )
         }).catch(error => {
+          loadref.current.style.display = 'none'
+          formref.current.style.display='flex'
           setEmail("")
           setPassword("")
           setError(error.message)
           
       })
     } else {
+      loadref.current.style.display = 'none'
+      formref.current.style.display='flex'
       setError("Please fill out the fields!")
     }
   }
@@ -42,6 +52,8 @@ function Login() {
   function createLogin() {
     
     if (email.length !== 0 && password.length !== 0) {
+      loadref.current.style.display = 'flex'
+          formref.current.style.display='none'
       auth.createUserWithEmailAndPassword(email, password)
         .then(userDetails => {
           actionDispatch(
@@ -52,13 +64,19 @@ function Login() {
               }
             }
           )
-      }).catch(error => {
+          loadref.current.style.display = 'none'
+          formref.current.style.display='flex'
+        }).catch(error => {
+          loadref.current.style.display = 'none'
+          formref.current.style.display='flex'
           setEmail("")
           setPassword("")
           setError(error.message)
           
       })
     } else {
+      loadref.current.style.display = 'none'
+      formref.current.style.display='flex'
       setError("Please fill out the fields!")
     }
   }
@@ -66,6 +84,8 @@ function Login() {
   function loginWithFacebook() {
     
     auth.signInWithPopup(FBprovider)
+      loadref.current.style.display = 'flex'
+      formref.current.style.display='none'
       .then(result => {
         console.log(result)
         var user = result.user
@@ -76,15 +96,21 @@ function Login() {
                 user:user
               }
             }
-          )
-    }).catch(error => {
-        setError("Login error please try again!")
+        )
+        loadref.current.style.display = 'none'
+        formref.current.style.display='flex'
+      }).catch(error => {
+      loadref.current.style.display = 'none'
+      formref.current.style.display='flex'
+      setError("Login error please try again!")
       alert(error.message)
     })
   }
 
   function loginWithGoogle() {
 
+    loadref.current.style.display = 'flex'
+    formref.current.style.display='none'
     auth.signInWithPopup(provider)
       .then(result => {
         var user = result.user;
@@ -95,9 +121,13 @@ function Login() {
                 user:user
               }
             }
-          )
+        )
+        loadref.current.style.display = 'none'
+        formref.current.style.display='flex'
       })
       .catch(error => {
+        loadref.current.style.display = 'none'
+        formref.current.style.display='flex'
         setError("Login error please try again!")
       alert(error.message)
     })
@@ -113,7 +143,14 @@ function Login() {
 
   return (
     <div className='login-page'>
-      <div className='login-form'>
+      <div className="loader" ref={loadref} style={{ display: "none"}}>
+        <div className="spiner">
+
+        </div>
+        <p>Let's get you loged in.</p>
+      </div>
+      <div className='login-form' ref={formref} style={{display:'flex'}}>
+
 
         <p className='error'>{error }</p>
 

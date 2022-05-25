@@ -5,13 +5,21 @@ import { Context } from '../Provider'
 import { db } from '../firebase.config'
 
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import { Link } from 'react-router-dom';
 
 
 import './Post.css'
 function DelButton({ pid, delfunction }) {
   return (
     <div className="options">
-      <button className='del-btn' onClick={()=>{delfunction(pid)}}>
+
+      <Link className='edit-btn' to={`/post/${pid}`} >
+        
+        <EditIcon className='edit-icon'/>
+      </Link>
+      <button className='del-btn' onClick={() => { delfunction(pid) }}>
+        
         <DeleteIcon className='del-icon' />
       </button>
     </div>
