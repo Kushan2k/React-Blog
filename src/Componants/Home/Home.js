@@ -13,7 +13,7 @@ function Home() {
   
   const postref=useRef()
 
-  db.collection('posts').onSnapshot(shot => {
+  db.collection('posts').orderBy('post','desc').onSnapshot(shot => {
     let posts=[]
     shot.forEach(doc => {
       posts.push({
@@ -41,7 +41,7 @@ function Home() {
 
     setTimeout(() => {
       let posts=[]
-      const d = db.collection('posts').get();
+      const d = db.collection('posts').orderBy('post','desc').get();
       d.then(res => {
         
         res.forEach(doc => {

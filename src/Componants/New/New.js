@@ -26,10 +26,12 @@ function New() {
     db.collection('posts').add({
       title: title,
       content: content,
-      date: new Date().toUTCString(),
+      date: new Date().toLocaleString('en-US',{timeZone:
+            "Asia/Kolkata",dateStyle:'long',timeStyle:'long'}),
       username: data.user.displayName? data.user.displayName:data.user.email,
       id: Math.random() * 100,
       url: data.user.photoURL ? data.user.photoURL : "https://www.seekpng.com/png/detail/143-1435868_headshot-silhouette-person-placeholder.png",
+      post:Date.now(),
       
     }).then(() => {
       formref.current.style.display='flex'
