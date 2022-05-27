@@ -10,7 +10,7 @@ import './Home.css'
 
 function Home() {
 
-  const loadref = useRef()
+  
   const postref=useRef()
 
   db.collection('posts').onSnapshot(shot => {
